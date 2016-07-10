@@ -2,12 +2,13 @@
 <html>
     <head>
         <title>Converter</title>
-        <script src="to-markdown.js"></script>
+        <script src="to-markdown/to-markdown.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
         <link rel="stylesheet" href="style.css">
-        <script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous" defer></script>
+        <script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous" defer></script>
         <script src="http://cdn.ckeditor.com/4.5.9/standard/ckeditor.js"></script>
+        <script src="resize/ResizeSensor.js"></script>
         <link href='https://fonts.googleapis.com/css?family=Fredoka+One' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
@@ -25,29 +26,35 @@
         </nav>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-6 portfolio-item">
+                <div class="col-md-6 portfolio-item" id="source">
                     <textarea id="sourceTA" rows="25" name="editor1"></textarea>  
                 </div>
                 <div class="col-md-6 portfolio-item">
-                    <textarea id='targetDiv' style="width:100%; overflow: scroll; height: 100vh;" readonly></textarea>    
+                    <textarea id='targetDiv' style="width:100%; overflow: scroll; height: 100vh" readonly></textarea>    
                 </div>    
             </div>
             <script>
                 CKEDITOR.replace( 'editor1' );
                 CKEDITOR.config.width = '100%';
-                CKEDITOR.config.height = 525;
+                CKEDITOR.config.height = window.innerHeight - 150;
                 var instance = CKEDITOR.instances.sourceTA;
                 instance.on( 'change', function() {
                     instance.updateElement()
                     try { 
                         var data = instance.getData();
-                        console.log(data);
                         data = toMarkdown(data) 
                         target = document.getElementById('targetDiv')
                         target.innerHTML = data;
                     } 
                     catch (ex) { }   
                 });
+
+                new ResizeSensor(jQuery('#source'), function() {
+                    var height = document.getElementById('source').clientHeight;
+                    console.log(height);
+                    $('#targetDiv').css("height", height);
+                });
+                
             </script>
         </div>
     </body>
