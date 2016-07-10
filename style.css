@@ -9,6 +9,11 @@
     font-family: 'Poiret One', cursive;
 }
 
+#nav {
+    margin: 0px;
+    padding: 0px;
+}
+
 #text {
     font-family: 'Fredoka One', cursive;
 }

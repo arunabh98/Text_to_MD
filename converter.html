@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="style.css">
         <script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous" defer></script>
-        <script src="http://cdn.ckeditor.com/4.5.9/standard/ckeditor.js"></script>
+        <script src="ckeditor/ckeditor.js"></script>
         <script src="resize/ResizeSensor.js"></script>
         <script src="https://use.fontawesome.com/6146fe9152.js"></script>
         <link href='https://fonts.googleapis.com/css?family=Fredoka+One' rel='stylesheet' type='text/css'>
@@ -15,7 +15,7 @@
         <link href='https://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
     </head>
     <body>
-        <nav class="navbar navbar-default" role="navigation">
+        <nav class="navbar navbar-default" role="navigation" id="nav">
             <div class="container">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="#"><span id="text">Text</span> to <span id="markdown">**Markdown**</span></a>
@@ -29,7 +29,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-6 portfolio-item" id="source">
-                    <textarea id="sourceTA" rows="25" name="editor1"></textarea>  
+                    <textarea id="sourceTA" rows="25" name="editor1" placeholder="You can write over here..."></textarea>  
                 </div>
 
                 <div class="col-md-6 portfolio-item" id="target">
@@ -41,6 +41,7 @@
                 CKEDITOR.replace( 'editor1' );
                 CKEDITOR.config.width = '100%';
                 CKEDITOR.config.height = window.innerHeight - 170;
+                CKEDITOR.config.extraPlugins = 'confighelper';
                 var instance = CKEDITOR.instances.sourceTA;
                 instance.on( 'change', function() {
                     instance.updateElement()
@@ -68,7 +69,7 @@
 
         <footer class="footer">
             <div class="container">
-                <p class="text-muted">Text to Markdown is copyright &copy; 2016 <a href="http://arunabh98.github.io/">Arunabh Ghosh</a> and is released under the MIT licence.</p>
+                <p class="text-muted">Text to Markdown is copyright &copy; 2016 <a href="http://arunabh98.github.io/" target="_blank">Arunabh Ghosh</a> and is released under the MIT licence.</p>
             </div>
         </footer>
     </body>
