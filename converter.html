@@ -56,7 +56,7 @@
                 new ResizeSensor(jQuery('#source'), function() {
                     var height = document.getElementById('source').clientHeight;
                     console.log(height);
-                    $('#targetDiv').css("height", height);
+                    $('#targetDiv').css("height", height - 20);
                 });
 
                 $(window).resize(function() {

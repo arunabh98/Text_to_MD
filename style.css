@@ -1,13 +1,8 @@
-.container-fluid .row {
-    height: 595px; 
-}
-
 .navbar-brand {
     transform: translateX(-50%);
     left: 50%;
     position: absolute;
     font-size: 200%;
-    display: inline-block;
 }
 
 .navbar-brand #markdown {
@@ -25,8 +20,23 @@
 #github {
     font-size: 150%;
     color: #4078c0;
+    float: right;
 }
 
 .footer {
     padding-top: 15px;
+}
+
+.container {
+    margin: 0px;
+    padding: 0px;
+    width: 98%; !important
+}
+
+#source {
+    padding: 10px;
+}
+
+#target {
+    padding: 10px;
 }
