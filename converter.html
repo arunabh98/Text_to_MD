@@ -9,6 +9,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous" defer></script>
         <script src="http://cdn.ckeditor.com/4.5.9/standard/ckeditor.js"></script>
         <script src="resize/ResizeSensor.js"></script>
+        <script src="https://use.fontawesome.com/6146fe9152.js"></script>
         <link href='https://fonts.googleapis.com/css?family=Fredoka+One' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
@@ -19,6 +20,10 @@
                 <div class="navbar-header">
                     <a class="navbar-brand" href="#"><span id="text">Text</span> to <span id="markdown">**Markdown**</span></a>
                 </div>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#about" id="github"><i class="fa fa-github" aria-hidden="true" style="padding-right: 3px;"></i>Github</a></li>
+                </ul>
             </div>
         </nav>
         <div class="container-fluid">
@@ -27,16 +32,10 @@
                     <textarea id="sourceTA" rows="25" name="editor1"></textarea>  
                 </div>
 
-                <div class="col-md-6 portfolio-item">
+                <div class="col-md-6 portfolio-item" id="target">
                     <textarea id='targetDiv' style="width:100%; overflow: scroll; height: 100vh" readonly></textarea>    
                 </div>    
             </div>
-
-            <footer class="footer">
-                <div class="container">
-                    <p class="text-muted">Text to Markdown is copyright &copy; 2016 <a href="http://arunabh98.github.io/">Arunabh Ghosh</a> and is released under the MIT licence.</p>
-                </div>
-            </footer>
 
             <script>
                 CKEDITOR.replace( 'editor1' );
@@ -66,5 +65,11 @@
                 
             </script>
         </div>
+
+        <footer class="footer">
+            <div class="container">
+                <p class="text-muted">Text to Markdown is copyright &copy; 2016 <a href="http://arunabh98.github.io/">Arunabh Ghosh</a> and is released under the MIT licence.</p>
+            </div>
+        </footer>
     </body>
 </html>
