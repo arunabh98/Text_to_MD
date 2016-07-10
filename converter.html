@@ -14,29 +14,34 @@
         <link href='https://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
     </head>
     <body>
-        <!-- Navigation -->
         <nav class="navbar navbar-default" role="navigation">
             <div class="container">
-                <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
                     <a class="navbar-brand" href="#"><span id="text">Text</span> to <span id="markdown">**Markdown**</span></a>
                 </div>
             </div>
-            <!-- /.container -->
         </nav>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-6 portfolio-item" id="source">
                     <textarea id="sourceTA" rows="25" name="editor1"></textarea>  
                 </div>
+
                 <div class="col-md-6 portfolio-item">
                     <textarea id='targetDiv' style="width:100%; overflow: scroll; height: 100vh" readonly></textarea>    
                 </div>    
             </div>
+
+            <footer class="footer">
+                <div class="container">
+                    <p class="text-muted">Text to Markdown is copyright &copy; 2016 <a href="http://arunabh98.github.io/">Arunabh Ghosh</a> and is released under the MIT licence.</p>
+                </div>
+            </footer>
+
             <script>
                 CKEDITOR.replace( 'editor1' );
                 CKEDITOR.config.width = '100%';
-                CKEDITOR.config.height = window.innerHeight - 150;
+                CKEDITOR.config.height = window.innerHeight - 170;
                 var instance = CKEDITOR.instances.sourceTA;
                 instance.on( 'change', function() {
                     instance.updateElement()
@@ -53,6 +58,10 @@
                     var height = document.getElementById('source').clientHeight;
                     console.log(height);
                     $('#targetDiv').css("height", height);
+                });
+
+                $(window).resize(function() {
+                    instance.resize(instance.config.width, window.innerHeight - 170, true, false);
                 });
                 
             </script>

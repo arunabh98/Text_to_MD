@@ -1,5 +1,5 @@
 .container-fluid .row {
-	height: 800px; 
+    height: 650px; 
 }
 
 .navbar-header {
@@ -9,14 +9,18 @@
     width: 100%;
 }
 .navbar-brand {
-	font-size: 200%;
-	float:none;
+    font-size: 200%;
+    float:none;
 }
 
 .navbar-brand #markdown {
-	font-family: 'Poiret One', cursive;
+    font-family: 'Poiret One', cursive;
 }
 
 #text {
-	font-family: 'Fredoka One', cursive;
+    font-family: 'Fredoka One', cursive;
+}
+
+.text-muted {
+    text-align: center;
 }
